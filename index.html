@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com/; font-src https://fonts.gstatic.com/; img-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resibo</title>
+<meta name="description" content="Restaurant bill calculator with senior, PWD, VAT and service charge.">
+<meta name="theme-color" content="#2447a8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f131b" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Resibo">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Resibo</h1>
+    <p>Restaurant bill calculator with senior, PWD, VAT and service charge.</p>
+    <button class="btn" id="install" type="button" hidden>Install app</button>
+  </header>
+
+  <div class="notice" id="notice" hidden>
+    <p>A sample order is loaded so you can see how it works.</p>
+    <button class="btn" id="clear" type="button">Start fresh</button>
+  </div>
+
+  <div class="layout">
+    <div class="main">
+      <section class="block">
+        <div class="block-head"><h2>Diners</h2><p class="hint">Who is eating</p></div>
+        <div id="people"></div>
+        <button class="btn add" id="addPerson" type="button">+ Add diner</button>
+      </section>
+
+      <section class="block">
+        <div class="block-head"><h2>Orders</h2><p class="hint">Tap names to choose who shares each dish</p></div>
+        <div id="items"></div>
+        <button class="btn add" id="addItem" type="button">+ Add item</button>
+      </section>
+
+      <details class="rates" open>
+        <summary>Rates and rules</summary>
+        <div class="rates-body">
+          <label class="field"><span>VAT %</span><input id="s-vat" inputmode="decimal" autocomplete="off"></label>
+          <label class="field"><span>Senior / PWD discount %</span><input id="s-discount" inputmode="decimal" autocomplete="off"></label>
+          <label class="field"><span>Service charge %</span><input id="s-service" inputmode="decimal" autocomplete="off"></label>
+          <label class="field wide check"><input type="checkbox" id="s-inclusive"><span>Menu prices already include VAT</span></label>
+          <label class="field wide"><span>Service charge is computed on</span>
+            <select id="s-base">
+              <option value="menu">Menu price, before any discount</option>
+              <option value="after">Amount after the discount</option>
+            </select>
+          </label>
+        </div>
+      </details>
+    </div>
+
+    <aside class="side" id="breakdown">
+      <div class="receipt" id="receipt" aria-live="polite"></div>
+      <div class="side-actions"><button class="btn primary" id="copy" type="button">Copy summary</button></div>
+      <p class="fine">Senior citizen and PWD discounts apply to each person's own share of the bill. Untick “Discount applies” on any item the restaurant does not discount; it is then charged at the listed price with VAT. Rules for service charge differ between restaurants, so set it to match your receipt. Check BIR and DTI guidance for official treatment.</p>
+    </aside>
+  </div>
+</div>
+
+<div class="bar" id="bar">
+  <div><div class="lbl">Total due</div><div class="amt" id="barTotal">₱0.00</div></div>
+  <button class="btn primary" id="jump" type="button">See breakdown</button>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
