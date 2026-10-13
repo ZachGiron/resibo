@@ -2,13 +2,13 @@
 
 A restaurant bill calculator for the Philippines. Split a bill between diners and apply senior citizen and PWD discounts, VAT and service charge. It is free, works on phones and computers, installs like an app, and works offline.
 
-**Live app:** [Resibo](https://zachgiron.github.io/resibo/)
+**Live app:** https://YOUR-USERNAME.github.io/YOUR-REPO/
 
 ## What it does
 
 - Splits one bill between any number of diners, with a separate total for each person
 - Applies the senior citizen or PWD discount (20% by default) and VAT exemption to that person's own share only
-- Lets you switch the discount off for individual items the restaurant does not discount
+- Lets you choose which items get the discount for each senior or PWD diner, in case the restaurant discounts only certain items
 - Adds VAT and service charge, with rates you can change
 - Shows a receipt-style breakdown: VATable sales, VAT, VAT-exempt sales, discounts, service charge and total due
 - Copies a short summary you can paste into a chat
@@ -18,7 +18,7 @@ A restaurant bill calculator for the Philippines. Split a bill between diners an
 
 1. **Add diners.** Enter a name for each person and choose Regular, Senior citizen, PWD or Custom. Custom lets you set your own discount percentage and say whether it is VAT-exempt.
 2. **Add orders.** For each item, enter the name, quantity and price of one. Tap the names under "Shared by" to choose who ate it. A dish shared by several people is divided equally between them.
-3. **Check "Discount applies".** It is on for every item by default. Untick it for items the restaurant does not discount. A senior or PWD diner pays the listed price, VAT included, for those items.
+3. **Choose what gets the discount.** Under each item, the "Discount for" buttons list the senior and PWD diners sharing it. A tick means the discount applies, and everything is ticked by default. Tap a name to turn it off for that item. That diner then pays the listed price, VAT included, for it.
 4. **Review the settings.** Open "Rates and rules" to match the restaurant's VAT, discount and service charge.
 5. **Read the receipt.** Each diner's amount is under "Pays", and the bill total is at the bottom. Use "Copy summary" to share it.
 
@@ -43,7 +43,7 @@ Prices are assumed to include VAT unless you turn that setting off.
 
 The ₱500 already includes ₱53.57 of VAT. Service charge is ₱50.00, so the diner pays ₱550.00.
 
-**Senior citizen with ₱600 of discounted items and ₱400 of items marked "Discount applies" off, no service charge**
+**Senior citizen with ₱600 of discounted items and ₱400 of items with the discount turned off, no service charge**
 
 The ₱600 becomes ₱428.57 after VAT removal and the 20% discount. The ₱400 is charged as listed. The diner pays ₱828.57.
 
@@ -84,6 +84,7 @@ Everything runs on your device. Your bill is saved in your browser's local stora
 - Resibo is a calculator. It is not an official receipt, and it does not check anyone's eligibility or ID.
 - It is not tax or legal advice. Which items a restaurant discounts, and how it treats service charge, vary, and rules can change. Check current BIR and DTI guidance, or ask the restaurant, if you are unsure.
 - Shared dishes are always split equally between the people sharing them.
+- The discount is applied to a whole item, not to part of a quantity. If a restaurant discounts only one of three of the same dish, enter that one as its own line.
 - Because the bill is stored per browser, a bill started on one device will not appear on another.
 
 ## Built with
