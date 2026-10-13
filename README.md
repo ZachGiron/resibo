@@ -2,7 +2,7 @@
 
 A restaurant bill calculator for the Philippines. Split a bill between diners and apply senior citizen and PWD discounts, VAT and service charge. It is free, works on phones and computers, installs like an app, and works offline.
 
-**Live app:** https://YOUR-USERNAME.github.io/YOUR-REPO/
+**Live app:** https://ZachGiron.github.io/resibo/
 
 ## What it does
 
